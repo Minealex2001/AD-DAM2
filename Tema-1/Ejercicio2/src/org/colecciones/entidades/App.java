@@ -1,5 +1,7 @@
 package org.colecciones.entidades;
 
+import java.util.Comparator;
+
 public class App
 {
     public static void main( String[] args )
@@ -33,11 +35,12 @@ public class App
         collection.pormpagtit();
         System.out.println("-----------------------");
         collection.autores();
-        System.out.println("-----------------------");
-        collection.autoresmaslibros();
+        //System.out.println("-----------------------");
+        //collection.autoresmaslibros();
         System.out.println("-----------------------");
         collection.libromayor();
 
-        collection.libros.sort((o1, o2) -> o2.title().charat(0) - o1.title().charat(0));
+        //collection.biblioteca.sort(Comparator.comparing(Book::title));
+        collection.biblioteca.sort((o1, o2) -> o1.title().compareTo(o2.title()));
     }
 }

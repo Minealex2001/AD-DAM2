@@ -85,28 +85,28 @@ public class BookCollection {
         System.out.println("7. Los autores de todos los libros son: ");
         HashMap<String, String> nombre = new HashMap<>();
 
-        for (Book col: biblioteca) {
-            if (!nombre.containsKey(col.author())){
-                nombre.put(col.author(),col.title());
+        for (Book col : biblioteca) {
+            if (!nombre.containsKey(col.author())) {
+                nombre.put(col.author(), col.title());
             }
         }
-        for (Map.Entry<String,String> entry : nombre.entrySet()){
+        for (Map.Entry<String, String> entry : nombre.entrySet()) {
             System.out.println(entry.getKey());
         }
     }
 
-    public void autoresmaslibros() {
-        System.out.println("8. Los autores con más de un libro son: ");
-        HashMap<String, String> nombre = new HashMap<>();
-        for (Book col: biblioteca) {
-            if (!nombre.containsValue(col.author())){
-                nombre.put(col.title(), col.author());
-            }
-        }
-        for (Map.Entry<String,String> entry : nombre.entrySet()){
-            if (entry.ge)
-        }
-    }
+    /*public void autoresmaslibros() {
+     *   System.out.println("8. Los autores con más de un libro son: ");
+      *  HashMap<String, String> nombre = new HashMap<>();
+       * for (Book col: biblioteca) {
+        *    if (!nombre.containsValue(col.author())){
+         *       nombre.put(col.title(), col.author());
+          *  }
+        *}
+        *for (Map.Entry<String,String> entry : nombre.entrySet()){
+         *   if (entry.ge)
+        *}
+    }*/
 
     public void libromayor() {
         System.out.println("9. El titulo libro con más paginas: ");
@@ -123,7 +123,7 @@ public class BookCollection {
     public ArrayList<String> colecciontitulos() {
         ArrayList<String> titulos = new ArrayList<String>();
         for (Book col : biblioteca) {
-        titulos.add(col.title());
+            titulos.add(col.title());
         }
         return titulos;
     }
