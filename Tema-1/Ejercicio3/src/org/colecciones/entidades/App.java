@@ -34,8 +34,8 @@ public class App
         collection.pormpagtit();
         System.out.println("-----------------------");
         collection.autores();
-        //System.out.println("-----------------------");
-        //collection.autoresmaslibros();
+        System.out.println("-----------------------");
+        collection.autoresmaslibros();
         System.out.println("-----------------------");
         collection.libromayor();
         System.out.println("-----------------------");
