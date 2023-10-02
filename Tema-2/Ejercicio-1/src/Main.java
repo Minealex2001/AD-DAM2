@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        List<Path> listaArchivos = Files.walk(Paths.get("/tmp/niats")).toList();
-        listaArchivos.stream().findAny();
+        AplanarDirectorios aplanarDirectorios = new AplanarDirectorios(Paths.get());
+        aplanarDirectorios.aplanar();
     }
 }
