@@ -22,33 +22,29 @@ import static java.nio.file.Files.lines;
  * @GitHub <a href="https://github.com/Minealex2001/AD-DAM2">...</a>
  */
 public class Main {
-    public static void main(String[] args){
-        final String COMMA_DELIMITER = ",";
-        List<Funko> listaCSV = new ArrayList<>();
+    public static void main(String[] args) throws IOException {
+    ColecciondeFunkos funkos = new ColecciondeFunkos(Path.of(".", "src", "resources", "funkos.csv"));
 
-        //Leer el fichero de funkos.csv y crear una lista de objetos main.Funko
-        try (Stream<String> contenidoFichero = lines(Path.of(".", "src", "resources", "funkos.csv"))) {
-             listaCSV = contenidoFichero.map(l -> Arrays.asList(l.split(COMMA_DELIMITER))).map(l -> new Funko(l.get(0), l.get(1), l.get(2), l.get(3), l.get(4))).toList();
+    //Imprimimos el funko más caro
+funkos.imprimirFunkoMasCaro();
 
-            //Ordenar la lista por precio
-            listaCSV = listaCSV.stream().sorted(Comparator.comparing(Funko::getPrecio)).toList();
-        } catch (IOException e) {
-            e.printStackTrace(System.out);
-        }
+//Imprimimos los funkos agrupados por modelo
+funkos.imprimirFunkoPorModelo();
 
-        //Imprimimos el funko más caro
-        System.out.println("El funko más caro es: " + listaCSV.get(listaCSV.size() - 1).getNombre() + " y cuesta " + listaCSV.get(listaCSV.size() - 1).getPrecio() + "€");
+//Imprimimos la media de precio de los funkos
+funkos.imprimirMediaPrecio();
 
-        //Imprimimos los funkos agrupados por modelo
-        listaCSV.stream().sorted(Comparator.comparing(Funko::getModelo)).forEach(System.out::println);
+//Imprimimos el numero de funkos que hay de cada modelo
+funkos.imprimirNumeroFunkosModelo();
 
-        //Imprimimos la media de precio de los funkos
-        System.out.printf("La media de precio de los funkos es: %s€%n", listaCSV.stream().mapToDouble(Funko::getPrecio).average().getAsDouble());
+//Imprimimos el numero de funkos que salen en 2023
+funkos.imprimirNumeroFunkos2023();
 
-        //Imprimimos el numero de funkos que hay de cada modelo
-        listaCSV.stream().sorted(Comparator.comparing(Funko::getModelo)).forEach(System.out::println);
+//Serializar el objeto colecciondeFunkos
+funkos.serializar(funkos);
 
-        //Imprimimos el numero de funkos que salen en 2023
-        System.out.println("El numero de funkos que salen en 2023 es: " + listaCSV.stream().filter(f -> f.getFechaLanzamiento().equals("2023")).count());
+//Deserializar el objeto colecciondeFunkos
+funkos.desserializar();
+
     }
 }
