@@ -1,3 +1,5 @@
+package main;
+
 import java.io.Serializable;
 import java.util.Date;
 import java.util.UUID;
@@ -13,10 +15,17 @@ public class Funko implements Serializable {
         this.id = id;
         this.nombre = nombre;
         this.modelo = modelo;
-        this.precio = Double.parseDouble(precioString);
+        this.precio = precioStringToDouble(precioString);
         this.fechaLanzamiento = fechaLanzamiento;
     }
 
+    private double precioStringToDouble(String precioString) {
+        try{
+            return Double.parseDouble(precioString);
+        } catch (NumberFormatException e) {
+            return 0.0;
+        }
+    }
     public String getId() {
         return id;
     }
@@ -39,7 +48,7 @@ public class Funko implements Serializable {
 
     @Override
     public String toString() {
-        return "Funko{" +
+        return "main.Funko{" +
                 "id=" + id +
                 ", nombre='" + nombre + '\'' +
                 ", modelo='" + modelo + '\'' +
