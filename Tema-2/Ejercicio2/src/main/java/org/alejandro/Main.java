@@ -26,19 +26,19 @@ public class Main {
     ColecciondeFunkos funkos = new ColecciondeFunkos(Path.of(".", "src", "resources", "funkos.csv"));
 
     //Imprimimos el funko más caro
-funkos.imprimirFunkoMasCaro();
+    System.out.println("El funko más caro es:" + funkos.imprimirFunkoMasCaro());
 
 //Imprimimos los funkos agrupados por modelo
 funkos.imprimirFunkoPorModelo();
 
 //Imprimimos la media de precio de los funkos
-funkos.imprimirMediaPrecio();
+System.out.printf("La media de precio de los funkos es: %s€%n" + funkos.imprimirMediaPrecio());
 
 //Imprimimos el numero de funkos que hay de cada modelo
 funkos.imprimirNumeroFunkosModelo();
 
 //Imprimimos el numero de funkos que salen en 2023
-funkos.imprimirNumeroFunkos2023();
+System.out.println("El numero de funkos que salen en 2023 es: " + funkos.imprimirNumeroFunkos2023());
 
 //Serializar el objeto colecciondeFunkos
 funkos.serializar(funkos);

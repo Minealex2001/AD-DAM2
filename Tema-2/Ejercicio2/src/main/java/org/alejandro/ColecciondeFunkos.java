@@ -29,8 +29,8 @@ public class ColecciondeFunkos implements Serializable {
 
 
     //Imprimimos el funko más caro
-    public void imprimirFunkoMasCaro() {
-        System.out.println("El funko más caro es: " + listaCSV.get(listaCSV.size() - 1).getNombre() + " y cuesta " + listaCSV.get(listaCSV.size() - 1).getPrecio() + "€");
+    public String imprimirFunkoMasCaro() {
+        return listaCSV.get(listaCSV.size() - 1).getNombre() + " y cuesta " + listaCSV.get(listaCSV.size() - 1).getPrecio() + "€";
     }
 
     //Imprimimos los funkos agrupados por modelo
@@ -38,8 +38,8 @@ public class ColecciondeFunkos implements Serializable {
     listaCSV.stream().sorted(Comparator.comparing(Funko::getModelo)).forEach(System.out::println);
     }
     //Imprimimos la media de precio de los funkos
-    public void imprimirMediaPrecio() {
-        System.out.printf("La media de precio de los funkos es: %s€%n", listaCSV.stream().mapToDouble(Funko::getPrecio).average().getAsDouble());
+    public double imprimirMediaPrecio() {
+        return listaCSV.stream().mapToDouble(Funko::getPrecio).average().getAsDouble();
     }
     //Imprimimos el numero de funkos que hay de cada modelo
     public void imprimirNumeroFunkosModelo() {
@@ -47,8 +47,8 @@ public class ColecciondeFunkos implements Serializable {
     }
 
     //Imprimimos el numero de funkos que salen en 2023
-    public void imprimirNumeroFunkos2023() {
-    System.out.println("El numero de funkos que salen en 2023 es: " + listaCSV.stream().filter(f -> f.getFechaLanzamiento().equals("2023")).count());
+    public long imprimirNumeroFunkos2023() {
+    return listaCSV.stream().filter(f -> f.getFechaLanzamiento().equals("2023")).count();
     };
 
     public boolean serializar(ColecciondeFunkos colecciondeFunkos) {
@@ -65,7 +65,7 @@ public class ColecciondeFunkos implements Serializable {
         return serializado;
     }
 
-    public void desserializar(){
+    public static ColecciondeFunkos desserializar(){
         ColecciondeFunkos coleccionFunkos = null;
         try(FileInputStream fis = new FileInputStream(Path.of(".", "src", "resources", "funkos.dat").toString());
             //Serializar el objeto colecciondeFunkos
@@ -75,6 +75,7 @@ public class ColecciondeFunkos implements Serializable {
             throw new RuntimeException(e);
         }
 
+        return coleccionFunkos;
     }
 
 

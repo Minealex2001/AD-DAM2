@@ -1,36 +1,70 @@
 package org.alejandro;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
 
-class ColecciondeFunkosTest {
+import java.io.IOException;
+import java.nio.file.Path;
+import java.util.List;
 
-    @Test
-    void imprimirFunkoMasCaro() {
+public class ColecciondeFunkosTest {
+
+    private ColecciondeFunkos coleccion;
+
+    @BeforeEach
+    void setUp() {
+        try {
+            // Asegúrate de que tienes un archivo "funkos.csv" válido en la ubicación especificada.
+            coleccion = new ColecciondeFunkos(Path.of(".", "src", "resources", "funkos.csv"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
-    void imprimirFunkoPorModelo() {
+    public void testImprimirFunkoMasCaro() {
+        String resultado = coleccion.imprimirFunkoMasCaro();
+        assertNotNull(resultado);
+        assertTrue(resultado.contains(" y cuesta "));
     }
 
     @Test
-    void imprimirMediaPrecio() {
+    public void testImprimirFunkoPorModelo() {
+        // Agrega aserciones para verificar la salida de este método
+        // (puedes redirigir la salida estándar a un ByteArrayOutputStream si es necesario).
     }
 
     @Test
-    void imprimirNumeroFunkosModelo() {
+    public void testImprimirMediaPrecio() {
+        double media = coleccion.imprimirMediaPrecio();
+        // Define un valor esperado en función de los datos de prueba en "funkos.csv".
+        double valorEsperado = 0;
+        assertEquals(valorEsperado, media, 0.01);
     }
 
     @Test
-    void imprimirNumeroFunkos2023() {
+    public void testImprimirNumeroFunkosModelo() {
+        // Agrega aserciones para verificar la salida de este método
+        // (puedes redirigir la salida estándar a un ByteArrayOutputStream si es necesario).
     }
 
     @Test
-    void serializar() {
+    public void testImprimirNumeroFunkos2023() {
+        long cantidad = coleccion.imprimirNumeroFunkos2023();
+        // Define un valor esperado en función de los datos de prueba en "funkos.csv".
+        short valorEsperado = 0;
+        assertEquals(valorEsperado, cantidad);
     }
 
     @Test
-    void desserializar() {
+    public void testSerializarYDesserializar() {
+        // Realiza la serialización y deserialización de la colección.
+        boolean serializado = coleccion.serializar(coleccion);
+        assertEquals(true, serializado);
+
+        ColecciondeFunkos deserializedColeccion = ColecciondeFunkos.desserializar();
+        assertNotNull(deserializedColeccion);
+        // Agrega aserciones para comparar la colección original con la desserializada.
     }
 }
