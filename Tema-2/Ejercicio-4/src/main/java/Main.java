@@ -78,11 +78,11 @@ public class Main {
 
     private static List<Book> leerJSON(Path ruta) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
-        return objectMapper.readValue(ruta.toFile(), new TypeReference<List<Book>>() {
+        return objectMapper.readValue(ruta.toFile(), new TypeReference<>() {
         });
     }
 
-    private static void escribirJSON(Path ficheroJSON, List<Book> bookList) throws DatabindException {
+    private static void escribirJSON(Path ficheroJSON, List<Book> bookList) {
         try{
             ObjectMapper objectMapper = new ObjectMapper();
             objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
