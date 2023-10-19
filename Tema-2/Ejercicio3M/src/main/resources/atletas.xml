@@ -1,0 +1,20 @@
+<atletas>
+  <atleta>
+    <nombre>Maria</nombre>
+    <prueba>
+      <prueba>500m</prueba>
+      <prueba>1000m</prueba>
+    </prueba>
+    <edad>20</edad>
+    <pais>España</pais>
+  </atleta>
+  <atleta>
+    <nombre>Laura</nombre>
+    <prueba>
+      <prueba>500m</prueba>
+      <prueba>1000m</prueba>
+    </prueba>
+    <edad>25</edad>
+    <pais>Francia</pais>
+  </atleta>
+</atletas>

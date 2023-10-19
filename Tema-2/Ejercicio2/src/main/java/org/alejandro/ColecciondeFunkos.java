@@ -30,12 +30,12 @@ public class ColecciondeFunkos implements Serializable {
 
     //Imprimimos el funko más caro
     public String imprimirFunkoMasCaro() {
-        return listaCSV.get(listaCSV.size() - 1).getNombre() + " y cuesta " + listaCSV.get(listaCSV.size() - 1).getPrecio() + "€";
+        return "El funko más caro es: " + listaCSV.get(listaCSV.size() - 1).getNombre() + " y cuesta " + listaCSV.get(listaCSV.size() - 1).getPrecio() + "€";
     }
 
     //Imprimimos los funkos agrupados por modelo
     public void imprimirFunkoPorModelo() {
-    listaCSV.stream().sorted(Comparator.comparing(Funko::getModelo)).forEach(System.out::println);
+        listaCSV.stream().sorted(Comparator.comparing(Funko::getModelo)).forEach(System.out::println);
     }
     //Imprimimos la media de precio de los funkos
     public double imprimirMediaPrecio() {

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="bd140ae4-f169-4e46-a4ae-1db73368fb3f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../Ejercicio-3/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Ejercicio-3/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Ejercicio-3/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Ejercicio-3/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Ejercicio-3/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Ejercicio-3/build.gradle.kts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Ejercicio-3/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Ejercicio-3/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Ejercicio-3/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Ejercicio-3/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Ejercicio-3/settings.gradle.kts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Ejercicio-3/src/main/java/AtletaFemenina.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Ejercicio-3/src/main/java/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/AtletaFemenina.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ListaAtletas.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/atletas.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ejercicio2/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Ejercicio2/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ejercicio2/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Ejercicio2/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ejercicio2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Ejercicio2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ejercicio2/src/main/java/org/alejandro/ColecciondeFunkos.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Ejercicio2/src/main/java/org/alejandro/ColecciondeFunkos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ejercicio2/src/main/java/org/alejandro/Funko.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Ejercicio2/src/main/java/org/alejandro/Funko.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ejercicio2/src/main/java/org/alejandro/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Ejercicio2/src/main/java/org/alejandro/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ejercicio2/src/main/resources/funkos.csv" beforeDir="false" afterPath="$PROJECT_DIR$/../Ejercicio2/src/main/resources/funkos.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ejercicio2/src/test/java/org/alejandro/ColecciondeFunkosMokitoTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ejercicio2/src/test/java/org/alejandro/ColecciondeFunkosTest.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2Wz3eOZcDCK8ZrDp6RUAaQ1IjYo" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/home/alesanpin2/IdeaProjects",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "preferences.sourceCode.Java",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="bd140ae4-f169-4e46-a4ae-1db73368fb3f" name="Changes" comment="" />
+      <created>1697721678128</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1697721678128</updated>
+      <workItem from="1697721679537" duration="311000" />
+      <workItem from="1697722003041" duration="2303000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Main.java</url>
+          <line>27</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

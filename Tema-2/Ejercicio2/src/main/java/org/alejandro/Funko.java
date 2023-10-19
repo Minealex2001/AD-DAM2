@@ -1,8 +1,6 @@
 package org.alejandro;
 
 import java.io.Serializable;
-import java.util.Date;
-import java.util.UUID;
 
 public class Funko implements Serializable {
     private final String id;

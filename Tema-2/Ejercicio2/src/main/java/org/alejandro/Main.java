@@ -23,28 +23,29 @@ import static java.nio.file.Files.lines;
  */
 public class Main {
     public static void main(String[] args) throws IOException {
-    ColecciondeFunkos funkos = new ColecciondeFunkos(Path.of(".", "src", "resources", "funkos.csv"));
+
+    ColecciondeFunkos cFunkos = new ColecciondeFunkos(Path.of(".", "src", "resources", "funkos.csv"));
 
     //Imprimimos el funko más caro
-    System.out.println("El funko más caro es:" + funkos.imprimirFunkoMasCaro());
+    System.out.println("El funko más caro es:" + cFunkos.imprimirFunkoMasCaro());
 
-//Imprimimos los funkos agrupados por modelo
-funkos.imprimirFunkoPorModelo();
+    //Imprimimos los funkos agrupados por modelo
+    cFunkos.imprimirFunkoPorModelo();
 
-//Imprimimos la media de precio de los funkos
-System.out.printf("La media de precio de los funkos es: %s€%n" + funkos.imprimirMediaPrecio());
+    //Imprimimos la media de precio de los funkos
+    System.out.println("La media de precio de los funkos es: %s€%n" + cFunkos.imprimirMediaPrecio());
 
-//Imprimimos el numero de funkos que hay de cada modelo
-funkos.imprimirNumeroFunkosModelo();
+    //Imprimimos el numero de funkos que hay de cada modelo
+    cFunkos.imprimirNumeroFunkosModelo();
 
-//Imprimimos el numero de funkos que salen en 2023
-System.out.println("El numero de funkos que salen en 2023 es: " + funkos.imprimirNumeroFunkos2023());
+    //Imprimimos el numero de funkos que salen en 2023
+    System.out.println("El numero de funkos que salen en 2023 es: " + cFunkos.imprimirNumeroFunkos2023());
 
-//Serializar el objeto colecciondeFunkos
-funkos.serializar(funkos);
+    //Serializar el objeto colecciondeFunkos
+    cFunkos.serializar(cFunkos);
 
-//Deserializar el objeto colecciondeFunkos
-funkos.desserializar();
+    //Deserializar el objeto colecciondeFunkos
+    cFunkos.desserializar();
 
     }
 }
