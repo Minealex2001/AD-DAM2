@@ -5,11 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bd140ae4-f169-4e46-a4ae-1db73368fb3f" name="Changes" comment="Restructuracion de las carpetas. (El ejercicio 3 esta ya realizado con Maven)">
-      <change afterPath="$PROJECT_DIR$/../Ejercicio-4/src/main/java/Book.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Ejercicio-4/src/main/java/BookList.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Ejercicio-4/src/main/java/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Ejercicio-4/src/main/resources/books.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Ejercicio-4/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Ejercicio-4/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ejercicio-4/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Ejercicio-4/src/main/java/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,6 +63,7 @@
       <workItem from="1697722003041" duration="2303000" />
       <workItem from="1697724477186" duration="265000" />
       <workItem from="1697726658921" duration="26000" />
+      <workItem from="1697732409857" duration="8000" />
     </task>
     <task id="LOCAL-00001" summary="Restructuracion de las carpetas. (El ejercicio 3 esta ya realizado con Maven)">
       <option name="closed" value="true" />

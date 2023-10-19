@@ -1,19 +1,25 @@
 [ {
   "title" : "El Quijote",
   "author" : "Cervantes",
-  "isbn" : "1234",
+  "isbn" : 1234,
   "year" : 1605,
   "pages" : 2000
 }, {
   "title" : "El Señor de los Anillos",
   "author" : "Tolkien",
-  "isbn" : "5678",
+  "isbn" : 5678,
   "year" : 1954,
   "pages" : 1000
 }, {
   "title" : "El Hobbit",
   "author" : "Tolkien",
-  "isbn" : "9012",
+  "isbn" : 9012,
   "year" : 1937,
   "pages" : 500
+}, {
+  "title" : "23",
+  "author" : "23",
+  "isbn" : 23,
+  "year" : 23,
+  "pages" : 23
 } ]
