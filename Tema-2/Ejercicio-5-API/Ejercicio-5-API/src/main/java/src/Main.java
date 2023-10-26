@@ -1,15 +1,15 @@
 package src;
 
-import src.funcionalidad.funcion;
+import src.funcionalidad.Funcion;
 
-import javax.net.ssl.HttpsURLConnection;
 import java.io.IOException;
-import java.net.URL;
+import java.nio.file.Path;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        funcion funcion = new funcion();
-        funcion.leerDrivers().forEach(System.out::println);
+        Funcion funcion = new Funcion();
+        Path ficheroJSON = Path.of("src/main/resources/drivers.json");
+        Funcion.escribirJSON(ficheroJSON);
 
     }
 }
