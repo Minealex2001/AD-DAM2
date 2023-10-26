@@ -30,6 +30,7 @@ public class Funcion  {
     public static void escribirJSON(Path ficheroJSON) {
         try{
             ObjectMapper objectMapper = new ObjectMapper();
+            objectMapper.registerModule(new JavaTimeModule());
             objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
             objectMapper.writeValue(ficheroJSON.toFile(), driversList);
         } catch (StreamWriteException e) {

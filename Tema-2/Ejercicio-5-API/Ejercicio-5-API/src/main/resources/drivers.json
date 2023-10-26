@@ -5,7 +5,7 @@
   "url" : "http://en.wikipedia.org/wiki/Alexander_Albon",
   "givenName" : "Alexander",
   "familyName" : "Albon",
-  "dateOfBirth" : "1996-03-23",
+  "dateOfBirth" : [ 1996, 3, 23 ],
   "nationality" : "Thai"
 }, {
   "driverId" : "alonso",
@@ -14,7 +14,7 @@
   "url" : "http://en.wikipedia.org/wiki/Fernando_Alonso",
   "givenName" : "Fernando",
   "familyName" : "Alonso",
-  "dateOfBirth" : "1981-07-29",
+  "dateOfBirth" : [ 1981, 7, 29 ],
   "nationality" : "Spanish"
 }, {
   "driverId" : "bottas",
@@ -23,7 +23,7 @@
   "url" : "http://en.wikipedia.org/wiki/Valtteri_Bottas",
   "givenName" : "Valtteri",
   "familyName" : "Bottas",
-  "dateOfBirth" : "1989-08-28",
+  "dateOfBirth" : [ 1989, 8, 28 ],
   "nationality" : "Finnish"
 }, {
   "driverId" : "de_vries",
@@ -32,7 +32,7 @@
   "url" : "http://en.wikipedia.org/wiki/Nyck_de_Vries",
   "givenName" : "Nyck",
   "familyName" : "de Vries",
-  "dateOfBirth" : "1995-02-06",
+  "dateOfBirth" : [ 1995, 2, 6 ],
   "nationality" : "Dutch"
 }, {
   "driverId" : "gasly",
@@ -41,7 +41,7 @@
   "url" : "http://en.wikipedia.org/wiki/Pierre_Gasly",
   "givenName" : "Pierre",
   "familyName" : "Gasly",
-  "dateOfBirth" : "1996-02-07",
+  "dateOfBirth" : [ 1996, 2, 7 ],
   "nationality" : "French"
 }, {
   "driverId" : "hamilton",
@@ -50,7 +50,7 @@
   "url" : "http://en.wikipedia.org/wiki/Lewis_Hamilton",
   "givenName" : "Lewis",
   "familyName" : "Hamilton",
-  "dateOfBirth" : "1985-01-07",
+  "dateOfBirth" : [ 1985, 1, 7 ],
   "nationality" : "British"
 }, {
   "driverId" : "hulkenberg",
@@ -59,7 +59,7 @@
   "url" : "http://en.wikipedia.org/wiki/Nico_H%C3%BClkenberg",
   "givenName" : "Nico",
   "familyName" : "Hülkenberg",
-  "dateOfBirth" : "1987-08-19",
+  "dateOfBirth" : [ 1987, 8, 19 ],
   "nationality" : "German"
 }, {
   "driverId" : "lawson",
@@ -68,7 +68,7 @@
   "url" : "http://en.wikipedia.org/wiki/Liam_Lawson",
   "givenName" : "Liam",
   "familyName" : "Lawson",
-  "dateOfBirth" : "2002-02-11",
+  "dateOfBirth" : [ 2002, 2, 11 ],
   "nationality" : "New Zealander"
 }, {
   "driverId" : "leclerc",
@@ -77,7 +77,7 @@
   "url" : "http://en.wikipedia.org/wiki/Charles_Leclerc",
   "givenName" : "Charles",
   "familyName" : "Leclerc",
-  "dateOfBirth" : "1997-10-16",
+  "dateOfBirth" : [ 1997, 10, 16 ],
   "nationality" : "Monegasque"
 }, {
   "driverId" : "kevin_magnussen",
@@ -86,7 +86,7 @@
   "url" : "http://en.wikipedia.org/wiki/Kevin_Magnussen",
   "givenName" : "Kevin",
   "familyName" : "Magnussen",
-  "dateOfBirth" : "1992-10-05",
+  "dateOfBirth" : [ 1992, 10, 5 ],
   "nationality" : "Danish"
 }, {
   "driverId" : "norris",
@@ -95,7 +95,7 @@
   "url" : "http://en.wikipedia.org/wiki/Lando_Norris",
   "givenName" : "Lando",
   "familyName" : "Norris",
-  "dateOfBirth" : "1999-11-13",
+  "dateOfBirth" : [ 1999, 11, 13 ],
   "nationality" : "British"
 }, {
   "driverId" : "ocon",
@@ -104,7 +104,7 @@
   "url" : "http://en.wikipedia.org/wiki/Esteban_Ocon",
   "givenName" : "Esteban",
   "familyName" : "Ocon",
-  "dateOfBirth" : "1996-09-17",
+  "dateOfBirth" : [ 1996, 9, 17 ],
   "nationality" : "French"
 }, {
   "driverId" : "perez",
@@ -113,7 +113,7 @@
   "url" : "http://en.wikipedia.org/wiki/Sergio_P%C3%A9rez",
   "givenName" : "Sergio",
   "familyName" : "Pérez",
-  "dateOfBirth" : "1990-01-26",
+  "dateOfBirth" : [ 1990, 1, 26 ],
   "nationality" : "Mexican"
 }, {
   "driverId" : "piastri",
@@ -122,7 +122,7 @@
   "url" : "http://en.wikipedia.org/wiki/Oscar_Piastri",
   "givenName" : "Oscar",
   "familyName" : "Piastri",
-  "dateOfBirth" : "2001-04-06",
+  "dateOfBirth" : [ 2001, 4, 6 ],
   "nationality" : "Australian"
 }, {
   "driverId" : "ricciardo",
@@ -131,7 +131,7 @@
   "url" : "http://en.wikipedia.org/wiki/Daniel_Ricciardo",
   "givenName" : "Daniel",
   "familyName" : "Ricciardo",
-  "dateOfBirth" : "1989-07-01",
+  "dateOfBirth" : [ 1989, 7, 1 ],
   "nationality" : "Australian"
 }, {
   "driverId" : "russell",
@@ -140,7 +140,7 @@
   "url" : "http://en.wikipedia.org/wiki/George_Russell_(racing_driver)",
   "givenName" : "George",
   "familyName" : "Russell",
-  "dateOfBirth" : "1998-02-15",
+  "dateOfBirth" : [ 1998, 2, 15 ],
   "nationality" : "British"
 }, {
   "driverId" : "sainz",
@@ -149,7 +149,7 @@
   "url" : "http://en.wikipedia.org/wiki/Carlos_Sainz_Jr.",
   "givenName" : "Carlos",
   "familyName" : "Sainz",
-  "dateOfBirth" : "1994-09-01",
+  "dateOfBirth" : [ 1994, 9, 1 ],
   "nationality" : "Spanish"
 }, {
   "driverId" : "sargeant",
@@ -158,7 +158,7 @@
   "url" : "http://en.wikipedia.org/wiki/Logan_Sargeant",
   "givenName" : "Logan",
   "familyName" : "Sargeant",
-  "dateOfBirth" : "2000-12-31",
+  "dateOfBirth" : [ 2000, 12, 31 ],
   "nationality" : "American"
 }, {
   "driverId" : "stroll",
@@ -167,7 +167,7 @@
   "url" : "http://en.wikipedia.org/wiki/Lance_Stroll",
   "givenName" : "Lance",
   "familyName" : "Stroll",
-  "dateOfBirth" : "1998-10-29",
+  "dateOfBirth" : [ 1998, 10, 29 ],
   "nationality" : "Canadian"
 }, {
   "driverId" : "tsunoda",
@@ -176,7 +176,7 @@
   "url" : "http://en.wikipedia.org/wiki/Yuki_Tsunoda",
   "givenName" : "Yuki",
   "familyName" : "Tsunoda",
-  "dateOfBirth" : "2000-05-11",
+  "dateOfBirth" : [ 2000, 5, 11 ],
   "nationality" : "Japanese"
 }, {
   "driverId" : "max_verstappen",
@@ -185,7 +185,7 @@
   "url" : "http://en.wikipedia.org/wiki/Max_Verstappen",
   "givenName" : "Max",
   "familyName" : "Verstappen",
-  "dateOfBirth" : "1997-09-30",
+  "dateOfBirth" : [ 1997, 9, 30 ],
   "nationality" : "Dutch"
 }, {
   "driverId" : "zhou",
@@ -194,6 +194,6 @@
   "url" : "http://en.wikipedia.org/wiki/Zhou_Guanyu",
   "givenName" : "Guanyu",
   "familyName" : "Zhou",
-  "dateOfBirth" : "1999-05-30",
+  "dateOfBirth" : [ 1999, 5, 30 ],
   "nationality" : "Chinese"
 } ]
