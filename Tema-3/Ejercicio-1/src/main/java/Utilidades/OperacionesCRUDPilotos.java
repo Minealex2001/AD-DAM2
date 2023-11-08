@@ -118,4 +118,32 @@ public class OperacionesCRUDPilotos {
             System.out.println(e.getMessage());
         }
     }
+
+    public static void MostrarClasificacionPiloto(){
+        try(Connection conexion = DriverManager.getConnection("jdbc:sqlite:" + pathDB.toString())){
+            System.out.println("Conexión establecida");
+            String sql = "SELECT d.code, r.points FROM drivers d JOIN results r ON d.driverid = r.driverid GROUP BY d.code ORDER BY r.points DESC";
+            PreparedStatement select = conexion.prepareStatement(sql);
+            ResultSet resultados = select.executeQuery();
+            while (resultados.next()){
+                System.out.println(resultados.getString("code") + " " + resultados.getInt("points"));
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public static void MostrarClasificacionConstructores(){
+        try(Connection conexion = DriverManager.getConnection("jdbc:sqlite:" + pathDB.toString())){
+            System.out.println("Conexión establecida");
+            String sql = "SELECT c.name, r.points FROM constructors c inner join results r, drivers d ON c.constructorid = r.constructorid GROUP BY c.name ORDER BY r.points DESC";
+            PreparedStatement select = conexion.prepareStatement(sql);
+            ResultSet resultados = select.executeQuery();
+            while (resultados.next()){
+                System.out.println(resultados.getString("name") + " " + resultados.getInt("points"));
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
 }
