@@ -18,12 +18,12 @@ public class Piloto {
     private int constructorId;
     private String url;
 
-    public Piloto(int driverId, String driverCode, String driverForename, String driverSurname, LocalDate driverDOB, String driverNationality, int constructorId, String url) {
+    public Piloto(int driverId, String driverCode, String driverForename, String driverSurname, String driverDOB, String driverNationality, int constructorId, String url) {
         this.driverId = driverId;
         this.driverCode = driverCode;
         this.driverForename = driverForename;
         this.driverSurname = driverSurname;
-        this.driverDOB = LocalDate.parse(driverDOB.toString());
+        this.driverDOB = LocalDate.parse(driverDOB);
         this.driverNationality = driverNationality;
         this.constructorId = constructorId;
         this.url = url;

@@ -4,7 +4,6 @@ import f1.Piloto;
 
 import java.nio.file.Path;
 import java.sql.*;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,29 +13,45 @@ public class OperacionesCRUDPilotos {
     public static void crearPiloto(Piloto piloto) throws SQLException {
         PreparedStatement insert = null;
         try (Connection conexion = DriverManager.getConnection("jdbc:sqlite:" + pathDB.toString())) {
-            String sql = "INSERT INTO drivers (driverId, driverCode, driverForename, driverSurname, driverDOB, driverNationality, constructorId, url) VALUES (?,?,?,?,?,?,?,?)";
+            String sql = "INSERT INTO drivers (code, forename, surname, dob, nationality, constructorId, url) VALUES (?,?,?,?,?,?,?)";
             insert = conexion.prepareStatement(sql);
-            insert.setInt(1, piloto.getDriverId());
-            insert.setString(2, piloto.getDriverCode());
-            insert.setString(3, piloto.getDriverForename());
-            insert.setString(4, piloto.getDriverSurname());
-            insert.setString(5, piloto.getDriverDOB().toString());
-            insert.setString(6, piloto.getDriverNationality());
-            insert.setInt(7, piloto.getConstructorId());
-            insert.setString(8, piloto.getUrl());
+            insert.setString(1, piloto.getDriverCode());
+            insert.setString(2, piloto.getDriverForename());
+            insert.setString(3, piloto.getDriverSurname());
+            insert.setString(4, piloto.getDriverDOB().toString());
+            insert.setString(5, piloto.getDriverNationality());
+            insert.setInt(6, piloto.getConstructorId());
+            insert.setString(7, piloto.getUrl());
+            insert.executeUpdate();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         } finally {
-            System.out.println("Piloto creado");
             assert insert != null;
             insert.close();
         }
-
-
+        System.out.println("Piloto creado");
     }
 
-    public static void leerPiloto() {
+    public static Piloto leerPiloto(int driverId){
 
+        try (Connection conexion = DriverManager.getConnection("jdbc:sqlite:" + pathDB.toString())) {
+            System.out.println("Conexión establecida");
+            String sql = "SELECT * FROM drivers WHERE driverId = ?";
+            PreparedStatement select = conexion.prepareStatement(sql);
+            select.setInt(1, driverId);
+            ResultSet resultados = select.executeQuery();
+                return new Piloto(
+                        resultados.getInt("driverId"),
+                        resultados.getString("code"),
+                        resultados.getString("forename"),
+                        resultados.getString("surname"),
+                        resultados.getString("dob"),
+                        resultados.getString("nationality"),
+                        resultados.getInt("constructorId"),
+                        resultados.getString("url"));
+        } catch (SQLException ex) {
+            throw new RuntimeException(ex);
+        }
     }
 
     public static List<Piloto> leerPilotos() {
@@ -47,31 +62,60 @@ public class OperacionesCRUDPilotos {
             PreparedStatement select = conexion.prepareStatement(sql);
             ResultSet resultados = select.executeQuery();
             while (resultados.next()){
-                Piloto piloto = new Piloto();
-                piloto.setDriverId(resultados.getInt("driverId"));
-                piloto.setDriverCode(resultados.getString("driverCode"));
-                piloto.setDriverForename(resultados.getString("driverForename"));
-                piloto.setDriverSurname(resultados.getString("driverSurname"));
-                piloto.setDriverDOB(LocalDate.parse(resultados.getString("driverDOB")));
-                piloto.setDriverNationality(resultados.getString("driverNationality"));
-                piloto.setConstructorId(resultados.getInt("constructorId"));
-                piloto.setUrl(resultados.getString("url"));
-                assert false;
-                pilotos.add(piloto);
+            pilotos.add(new Piloto(
+                    resultados.getInt("driverId"),
+                    resultados.getString("code"),
+                    resultados.getString("forename"),
+                    resultados.getString("surname"),
+                    resultados.getString("dob"),
+                    resultados.getString("nationality"),
+                    resultados.getInt("constructorId"),
+                    resultados.getString("url")
+            ));
             }
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
 
+        System.out.println("Pilotos creados");
         return pilotos;
     }
 
-    public static void actualizarPiloto() {
+    public static void actualizarPiloto(Piloto piloto, int driverId) throws SQLException {
+        PreparedStatement update = null;
+        try(Connection conexion = DriverManager.getConnection("jdbc:sqlite:" + pathDB.toString())){
+            String sql = "UPDATE drivers SET code = ?, forename = ?, surname = ?, dob = ?, nationality = ?, constructorId = ?, url = ? WHERE driverId = ?";
+            update = conexion.prepareStatement(sql);
+            update.setString(1, piloto.getDriverCode());
+            update.setString(2, piloto.getDriverForename());
+            update.setString(3, piloto.getDriverSurname());
+            update.setString(4, piloto.getDriverDOB().toString());
+            update.setString(5, piloto.getDriverNationality());
+            update.setInt(6, piloto.getConstructorId());
+            update.setString(7, piloto.getUrl());
+            update.setInt(8, driverId);
+            update.executeUpdate();
+            System.out.println("Piloto actualizado");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        } finally {
+            assert update != null;
+            update.close();
 
+        }
     }
 
-    public static void borrarPiloto() {
-
+    public static void borrarPiloto(int driverId) {
+        try(Connection conexion = DriverManager.getConnection("jdbc:sqlite:" + pathDB.toString())){
+            System.out.println("Conexión establecida");
+            String sql = "DELETE FROM drivers WHERE driverId = ?";
+            PreparedStatement delete = conexion.prepareStatement(sql);
+            delete.setInt(1, driverId);
+            delete.executeUpdate();
+            System.out.println("Piloto borrado");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 }
