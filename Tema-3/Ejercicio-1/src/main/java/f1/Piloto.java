@@ -11,7 +11,6 @@ import java.time.LocalDate;
 @Data
 @NoArgsConstructor
 public class Piloto {
-
     // Atributos
     private int driverId;
     private String driverCode;
