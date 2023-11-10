@@ -136,11 +136,11 @@ public class OperacionesCRUDPilotos {
     public static void MostrarClasificacionConstructores(){
         try(Connection conexion = DriverManager.getConnection("jdbc:sqlite:" + pathDB.toString())){
             System.out.println("Conexión establecida");
-            String sql = "SELECT c.name, r.points FROM constructors c inner join results r, drivers d ON c.constructorid = r.constructorid GROUP BY c.name ORDER BY r.points DESC";
+            String sql = "SELECT c.name, SUM(r.points) AS Puntos FROM constructors c INNER JOIN drivers d ON c.constructorid = d.constructorid INNER JOIN results r ON d.driverid = r.driverid GROUP BY c.constructorid ORDER BY puntos DESC";
             PreparedStatement select = conexion.prepareStatement(sql);
             ResultSet resultados = select.executeQuery();
             while (resultados.next()){
-                System.out.println(resultados.getString("name") + " " + resultados.getInt("points"));
+                System.out.println(resultados.getString("name") + " " + resultados.getInt("Puntos"));
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
