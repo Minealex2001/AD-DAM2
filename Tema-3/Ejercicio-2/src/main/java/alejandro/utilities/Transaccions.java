@@ -3,6 +3,7 @@ package alejandro.utilities;
 import alejandro.entities.Piloto;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
@@ -83,7 +84,7 @@ public class Transaccions {
             insert.setString(1, piloto1.getCode());
             insert.setString(2, piloto1.getForename());
             insert.setString(3, piloto1.getSurname());
-            insert.setString(4, piloto1.getDob().toString());
+            insert.setDate(4, Date.valueOf(piloto1.getDob()));
             insert.setString(5, piloto1.getNationality());
             insert.setInt(6, piloto1.getConstructor().getConstructorid());
             insert.setString(7, piloto1.getUrl());
