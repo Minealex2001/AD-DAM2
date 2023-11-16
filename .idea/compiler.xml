@@ -11,6 +11,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="AD-DAM2" target="1.5" />
+      <module name="ejercicio-2" target="21" />
     </bytecodeTargetLevel>
   </component>
 </project>

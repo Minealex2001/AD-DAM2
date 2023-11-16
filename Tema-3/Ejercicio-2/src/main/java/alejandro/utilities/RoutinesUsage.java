@@ -46,8 +46,8 @@ public class RoutinesUsage {
         }
         ResultSet resultSet = select.executeQuery();
         while (resultSet.next()) {
-            System.out.println(resultSet.getString("round") + "|" + resultSet.getString("circuit") + "|" + resultSet.getString("result") +
-                                "|" + resultSet.getString("points") + "|" + resultSet.getString("date"));
+            System.out.println(resultSet.getString("round") + " | " + resultSet.getString("circuit") + " | " + resultSet.getString("result") +
+                                " | " + resultSet.getString("points") + " | " + resultSet.getString("date"));
         }
     }
 }
