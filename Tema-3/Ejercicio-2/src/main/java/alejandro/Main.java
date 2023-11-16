@@ -1,7 +1,10 @@
 package alejandro;
 
 import alejandro.db.DBConnection;
+import alejandro.entities.Constructor;
+import alejandro.entities.Piloto;
 import alejandro.utilities.RoutinesUsage;
+import alejandro.utilities.Transaccions;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -13,6 +16,7 @@ public class Main {
     public static void main(String[] args) {
         DBConnection dbConnection = new DBConnection();
         RoutinesUsage routinesUsage = new RoutinesUsage();
+        Transaccions transaccions = new Transaccions();
         String database = "jdbc:postgresql://accesoadatos.cfqcg5f1lvv6.us-east-1.rds.amazonaws.com:5432/f12006";
         String user = "postgres";
         String password = "75123366";
@@ -20,9 +24,23 @@ public class Main {
 
         connection = createConnection(connection, dbConnection, database, user, password);
 
-        getDriverStandings(connection, routinesUsage);
+//        getDriverStandings(connection, routinesUsage);
+//
+//        getResultsByDriver(routinesUsage, connection);
 
-        getResultsByDriver(routinesUsage, connection);
+        Constructor constructor1 = new Constructor("mclaren", "McLaren", "British", null);
+        Piloto piloto1 = new Piloto("nor", "Lando", "Norris", null, "British", constructor1, null);
+        Piloto piloto2 = new Piloto("nor", "Daniel", "Ricciardo", null, "Australian", constructor1, null);
+        Piloto piloto3 = new Piloto("sai", "Carlos", "Sainz", null, "Spanish", constructor1, null);
+
+        transaccions.transaccion(piloto1, piloto2, connection);
+        transaccions.transaccion(piloto1, piloto3, connection);
+
+        try {
+            dbConnection.closeConnection(connection);
+        } catch (SQLException e) {
+            System.err.println("Error closing the connection.\n Error: " + e.getMessage());
+        }
 
     }
 

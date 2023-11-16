@@ -9,71 +9,102 @@ import java.sql.SQLException;
 public class Transaccions {
 
     public boolean transaccion(Piloto piloto1, Piloto piloto2, Connection connection){
+
+            constructorInsert(piloto1, connection);
+            pilotoInsert(piloto1, connection);
+            pilotoInsert(piloto2, connection);
+
+        return true;
+    }
+
+    private static void constructorInsert(Piloto piloto1, Connection connection) {
+        String sql;
         PreparedStatement insert = null;
+        try {
+            connection.setAutoCommit(false);
+        } catch (SQLException e) {
+            System.err.println("Error setting the autocommit to false. L26\n Error: " + e.getMessage());
+        }
+
+        sql = "INSERT INTO constructors (constructorid, constructorref, name, nationality, url) VALUES (?, ?, ?, ?, ?)";
+
+        try {
+
+            insert = connection.prepareStatement(sql);
+            insert.setInt(1, piloto1.getConstructor().getConstructorid());
+            insert.setString(2, piloto1.getConstructor().getConstructorref());
+            insert.setString(3, piloto1.getConstructor().getName());
+            insert.setString(4, piloto1.getConstructor().getNationality());
+            insert.setString(5, piloto1.getConstructor().getUrl());
+            insert.executeUpdate();
+            connection.commit();
+
+        }catch (SQLException e){
+
+            System.err.println("Error creating the query L38.\n Error: " + e.getMessage());
+            assert insert != null;
+
+            try {
+
+                connection.rollback();
+
+            } catch (SQLException ex) {
+
+                System.err.println("Error rolling back the transaction. L47 \n Error: " + ex.getMessage());
+
+            }
+        }finally {
+            try {
+                connection.setAutoCommit(true);
+            } catch (SQLException e) {
+                System.err.println("Error setting the autocommit to true. L60\n Error: " + e.getMessage());
+            }
+        }
+    }
+
+    private static void pilotoInsert(Piloto piloto1, Connection connection) {
+        PreparedStatement insert;
         String sql;
 
-        if (piloto1.getConstructor().getConstructorid() == piloto2.getConstructor().getConstructorid()) {
+        sql = "INSERT INTO drivers (code, forename, surname, dob, nationality, constructorid, url) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
-            return false;
+        try {
+            connection.setAutoCommit(false);
+        } catch (SQLException e) {
+            System.err.println("Error setting the autocommit to false. L74\n Error: " + e.getMessage());
+        }
 
-        }else {
+        try {
 
-            sql = "INSERT INTO constructors (constructorid, constructorref, name, nationality, url) VALUES (?, ?, ?, ?, ?)";
+            insert = connection.prepareStatement(sql);
+            insert.setString(1, piloto1.getCode());
+            insert.setString(2, piloto1.getForename());
+            insert.setString(3, piloto1.getSurname());
+            insert.setDate(4, piloto1.getDob());
+            insert.setString(5, piloto1.getNationality());
+            insert.setInt(6, piloto1.getConstructor().getConstructorid());
+            insert.setString(7, piloto1.getUrl());
+            insert.executeUpdate();
+            connection.commit();
 
-            try {
+        } catch (SQLException e) {
 
-                insert = connection.prepareStatement(sql);
-                insert.setInt(1, piloto1.getConstructor().getConstructorid());
-                insert.setString(2, piloto1.getConstructor().getConstructorref());
-                insert.setString(3, piloto1.getConstructor().getName());
-                insert.setString(4, piloto1.getConstructor().getNationality());
-                insert.setURL(5, piloto1.getConstructor().getUrl());
-                insert.executeUpdate();
-
-            }catch (SQLException e){
-
-                System.err.println("Error creating the query.\n Error: " + e.getMessage());
-                assert insert != null;
-
-                try {
-
-                    connection.rollback();
-
-                } catch (SQLException ex) {
-
-                    System.err.println("Error rolling back the transaction.\n Error: " + ex.getMessage());
-
-                }
-            }
-
-            sql = "INSERT INTO drivers (code, forename, surname, dob, nationality, teamid, url) VALUES (?, ?, ?, ?, ?, ?, ?)";
+            System.err.println("Error creating the query. L72 \n Error: " + e.getMessage());
 
             try {
 
-                insert = connection.prepareStatement(sql);
-                insert.setString(1, piloto1.getCode());
-                insert.setString(2, piloto1.getForename());
-                insert.setString(3, piloto1.getSurname());
-                insert.setDate(4, piloto1.getDob());
-                insert.setString(5, piloto1.getNationality());
-                insert.setInt(6, piloto1.getConstructor().getConstructorid());
-                insert.setURL(7, piloto1.getUrl());
-                insert.executeUpdate();
+                connection.rollback();
 
-            } catch (SQLException e) {
+            } catch (SQLException ex) {
 
-                System.err.println("Error creating the query.\n Error: " + e.getMessage());
-
+                System.err.println("Error rolling back the transaction. L80\n Error: " + ex.getMessage());
+            }finally {
                 try {
-
-                    connection.rollback();
-
-                } catch (SQLException ex) {
-
-                    System.err.println("Error rolling back the transaction.\n Error: " + ex.getMessage());
+                    connection.setAutoCommit(true);
+                } catch (SQLException exx) {
+                    System.err.println("Error setting the autocommit to true. L60\n Error: " + exx.getMessage());
                 }
             }
         }
-        return true;
     }
 }

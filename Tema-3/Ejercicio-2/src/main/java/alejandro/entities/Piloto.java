@@ -18,5 +18,15 @@ public class Piloto {
     private Date dob;
     private String nationality;
     private Constructor constructor;
-    private URL url;
+    private String url;
+
+    public Piloto(String code, String forename, String surname, Date dob, String nationality, Constructor constructor, String url) {
+        this.code = code;
+        this.forename = forename;
+        this.surname = surname;
+        this.dob = dob;
+        this.nationality = nationality;
+        this.constructor = constructor;
+        this.url = url;
+    }
 }
