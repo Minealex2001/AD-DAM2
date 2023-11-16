@@ -29,12 +29,12 @@ public class Main {
 //        getResultsByDriver(routinesUsage, connection);
 
         Constructor constructor1 = new Constructor("mclaren", "McLaren", "British", null);
-        Piloto piloto1 = new Piloto("nor", "Lando", "Norris", null, "British", constructor1, null);
-        Piloto piloto2 = new Piloto("nor", "Daniel", "Ricciardo", null, "Australian", constructor1, null);
-        Piloto piloto3 = new Piloto("sai", "Carlos", "Sainz", null, "Spanish", constructor1, null);
+        Piloto piloto1 = new Piloto("nor", "Lando", "Norris", "1999-11-13", "British", constructor1, null);
+        Piloto piloto2 = new Piloto("nor", "Daniel", "Ricciardo", "1989-06-01", "Australian", constructor1, null);
+        Piloto piloto3 = new Piloto("sai", "Carlos", "Sainz", "1994-09-01", "Spanish", constructor1, null);
 
         transaccions.transaccion(piloto1, piloto2, connection);
-        transaccions.transaccion(piloto1, piloto3, connection);
+        transaccions.transaccion2(piloto1, piloto3, connection);
 
         try {
             dbConnection.closeConnection(connection);

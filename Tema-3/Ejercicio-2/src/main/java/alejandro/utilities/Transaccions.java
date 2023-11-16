@@ -8,13 +8,17 @@ import java.sql.SQLException;
 
 public class Transaccions {
 
-    public boolean transaccion(Piloto piloto1, Piloto piloto2, Connection connection){
+    public void transaccion(Piloto piloto1, Piloto piloto2, Connection connection){
 
             constructorInsert(piloto1, connection);
             pilotoInsert(piloto1, connection);
             pilotoInsert(piloto2, connection);
 
-        return true;
+    }
+
+    public void transaccion2(Piloto piloto1, Piloto piloto3, Connection connection){
+        pilotoInsert(piloto1, connection);
+        pilotoInsert(piloto3, connection);
     }
 
     private static void constructorInsert(Piloto piloto1, Connection connection) {
@@ -26,16 +30,15 @@ public class Transaccions {
             System.err.println("Error setting the autocommit to false. L26\n Error: " + e.getMessage());
         }
 
-        sql = "INSERT INTO constructors (constructorid, constructorref, name, nationality, url) VALUES (?, ?, ?, ?, ?)";
+        sql = "INSERT INTO constructors (constructorref, name, nationality, url) VALUES ( ?, ?, ?, ?)";
 
         try {
 
             insert = connection.prepareStatement(sql);
-            insert.setInt(1, piloto1.getConstructor().getConstructorid());
-            insert.setString(2, piloto1.getConstructor().getConstructorref());
-            insert.setString(3, piloto1.getConstructor().getName());
-            insert.setString(4, piloto1.getConstructor().getNationality());
-            insert.setString(5, piloto1.getConstructor().getUrl());
+            insert.setString(1, piloto1.getConstructor().getConstructorref());
+            insert.setString(2, piloto1.getConstructor().getName());
+            insert.setString(3, piloto1.getConstructor().getNationality());
+            insert.setString(4, piloto1.getConstructor().getUrl());
             insert.executeUpdate();
             connection.commit();
 
@@ -80,7 +83,7 @@ public class Transaccions {
             insert.setString(1, piloto1.getCode());
             insert.setString(2, piloto1.getForename());
             insert.setString(3, piloto1.getSurname());
-            insert.setDate(4, piloto1.getDob());
+            insert.setString(4, piloto1.getDob().toString());
             insert.setString(5, piloto1.getNationality());
             insert.setInt(6, piloto1.getConstructor().getConstructorid());
             insert.setString(7, piloto1.getUrl());

@@ -4,8 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.net.URL;
-import java.sql.Date;
+import java.time.LocalDate;
+
 
 @Data
 @NoArgsConstructor
@@ -15,18 +15,19 @@ public class Piloto {
     private String code;
     private String forename;
     private String surname;
-    private Date dob;
+    private LocalDate dob;
     private String nationality;
     private Constructor constructor;
     private String url;
 
-    public Piloto(String code, String forename, String surname, Date dob, String nationality, Constructor constructor, String url) {
+    public Piloto(String code, String forename, String surname, String dob, String nationality, Constructor constructor, String url) {
         this.code = code;
         this.forename = forename;
         this.surname = surname;
-        this.dob = dob;
+        this.dob = LocalDate.parse(dob);
         this.nationality = nationality;
         this.constructor = constructor;
         this.url = url;
     }
+
 }
