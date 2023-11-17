@@ -57,7 +57,7 @@ public class Transaccions {
         }
     }
 
-    private static void pilotoInsert(Piloto piloto, Connection connection) {
+    private static boolean pilotoInsert(Piloto piloto, Connection connection) {
         PreparedStatement insert;
         String sql;
         System.out.println(piloto + " " + test++);
@@ -83,13 +83,15 @@ public class Transaccions {
             insert.executeUpdate();
 
             connection.commit();
+            return true;
 
         } catch (SQLException e) {
 
+            Boolean rollback = true;
             if (e.getClass().getName().equals("org.postgresql.util.PSQLException") &&
                     e.getMessage().contains("duplicate key value violates unique constraint \"drivers_code_key\"")) {
-                solveDuplicateKey(piloto, connection);
-            } else {
+                rollback = solveDuplicateKey(piloto, connection);
+            } else if (!rollback){
 
                 try {
                     System.err.println("Rollback...");
@@ -112,12 +114,16 @@ public class Transaccions {
 
             }
         }
+        return false;
     }
 
-    private static void solveDuplicateKey(Piloto piloto, Connection connection) {
+    private static boolean solveDuplicateKey(Piloto piloto, Connection connection) {
         piloto.setCode(piloto.getSurname().substring(0, 2) + piloto.getForename().charAt(0));
         System.out.println("Solve" + piloto);
-        pilotoInsert(piloto, connection);
+        if (pilotoInsert(piloto, connection)){
+            return true;
+        }
+        return false;
     }
 
 
