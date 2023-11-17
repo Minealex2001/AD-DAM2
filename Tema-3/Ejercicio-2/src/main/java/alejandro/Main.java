@@ -24,6 +24,8 @@ public class Main {
 
         connection = createConnection(connection, dbConnection, database, user, password);
 
+        transaccions.deleteIfExists(connection);
+
 //        getDriverStandings(connection, routinesUsage);
 //
 //        getResultsByDriver(routinesUsage, connection);
@@ -34,7 +36,7 @@ public class Main {
         Piloto piloto3 = new Piloto("sai", "Carlos", "Sainz", "1994-09-01", "Spanish", constructor1, null);
 
         transaccions.transaccion(piloto1, piloto2, connection);
-        transaccions.transaccion2(piloto1, piloto3, connection);
+//        transaccions.transaccion(piloto1, piloto3, connection);
 
         try {
             dbConnection.closeConnection(connection);
