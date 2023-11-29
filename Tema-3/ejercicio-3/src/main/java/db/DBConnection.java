@@ -14,11 +14,15 @@ import static org.bson.codecs.configuration.CodecRegistries.fromProviders;
 import static org.bson.codecs.configuration.CodecRegistries.fromRegistries;
 
 public class DBConnection {
-    public MongoCollection<Drivers> dbConnection(String username, String password, String ip){
-        MongoClient dbClient = MongoClients.create("mongodb://" + username + ":" + password + "@" + ip + ":27017");
-        CodecProvider pojoCodecProvider = PojoCodecProvider.builder().automatic(true).build();
-        CodecRegistry pojoCodecRegistry = fromRegistries(getDefaultCodecRegistry(), fromProviders(pojoCodecProvider));
-        MongoDatabase db = dbClient.getDatabase("f1-2006").withCodecRegistry(pojoCodecRegistry);
-        return db.getCollection("drivers", Drivers.class);
+    public MongoCollection<Drivers> dbConnection(String username, String password, String ip , String database){
+        try(MongoClient dbClient = MongoClients.create("mongodb://" + username + ":" + password + "@" + ip + ":27017")){
+            CodecProvider pojoCodecProvider = PojoCodecProvider.builder().automatic(true).build();
+            CodecRegistry pojoCodecRegistry = fromRegistries(getDefaultCodecRegistry(), fromProviders(pojoCodecProvider));
+            MongoDatabase db = dbClient.getDatabase(database).withCodecRegistry(pojoCodecRegistry);
+            return db.getCollection("drivers", Drivers.class);
+        }catch (Exception e){
+            System.out.println("Error al conectar a la base de datos");
+            return null;
+        }
     }
 }
