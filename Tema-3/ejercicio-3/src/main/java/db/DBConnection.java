@@ -15,7 +15,8 @@ import static org.bson.codecs.configuration.CodecRegistries.fromRegistries;
 
 public class DBConnection {
     public MongoCollection<Drivers> dbConnection(String username, String password, String ip , String database){
-        try(MongoClient dbClient = MongoClients.create("mongodb://" + username + ":" + password + "@" + ip + ":27017")){
+        try{
+            MongoClient dbClient = MongoClients.create("mongodb://" + username + ":" + password + "@" + ip + ":27017");
             CodecProvider pojoCodecProvider = PojoCodecProvider.builder().automatic(true).build();
             CodecRegistry pojoCodecRegistry = fromRegistries(getDefaultCodecRegistry(), fromProviders(pojoCodecProvider));
             MongoDatabase db = dbClient.getDatabase(database).withCodecRegistry(pojoCodecRegistry);
