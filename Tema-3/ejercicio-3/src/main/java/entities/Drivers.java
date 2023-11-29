@@ -4,20 +4,34 @@ package entities;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.bson.types.ObjectId;
 
+import java.net.URI;
 import java.net.URL;
 import java.time.LocalDate;
+import java.util.Date;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
 public class Drivers {
-    int driverId;
+    ObjectId id;
+    int driverid;
     String code;
     String forename;
     String surname;
+    Date dob;
     String nationality;
-    LocalDate dob;
-    Constructor constructor;
-    URL url;
+    Constructor constructors;
+    String url;
+
+    public Drivers( int driverid, String code, String forename, String surname, Date dob, String nationality, Constructor constructors, String url) {
+        this.driverid = driverid;
+        this.code = code;
+        this.forename = forename;
+        this.surname = surname;
+        this.dob = dob;
+        this.nationality = nationality;
+        this.constructors = constructors;
+        this.url = url;
+    }
 }
