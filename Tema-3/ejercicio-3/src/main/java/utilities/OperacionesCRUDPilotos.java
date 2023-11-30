@@ -110,4 +110,8 @@ public class OperacionesCRUDPilotos {
             System.out.println("Error al leer los pilotos");
         }
     }
+
+    public void dbClose() {
+        DBConnection.closeConnection();
+    }
 }

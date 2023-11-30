@@ -22,5 +22,6 @@ public class Main {
         crud.MostrarPilotosConEdadMayorQue(30
         );
         crud.eliminarPiloto(piloto);
+        crud.dbClose();
     }
 }

@@ -32,7 +32,7 @@ public class DBConnection {
         }
     }
 
-    public void closeConnection() {
+    public static void closeConnection() {
         dbClient.close();
     }
 }
