@@ -1,14 +1,11 @@
 package entities;
 
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.bson.types.ObjectId;
 
-import java.net.URI;
-import java.net.URL;
-import java.time.LocalDate;
+import java.util.Calendar;
 import java.util.Date;
 
 @Data
@@ -24,7 +21,7 @@ public class Drivers {
     Constructor constructors;
     String url;
 
-    public Drivers( int driverid, String code, String forename, String surname, Date dob, String nationality, Constructor constructors, String url) {
+    public Drivers(int driverid, String code, String forename, String surname, Date dob, String nationality, Constructor constructors, String url) {
         this.driverid = driverid;
         this.code = code;
         this.forename = forename;
@@ -33,5 +30,13 @@ public class Drivers {
         this.nationality = nationality;
         this.constructors = constructors;
         this.url = url;
+    }
+
+    public int getAgeIn2006() {
+        // Asume que dob es un java.util.Date
+        Calendar dobCalendar = Calendar.getInstance();
+        dobCalendar.setTime(this.dob);
+        int birthYear = dobCalendar.get(Calendar.YEAR);
+        return 2006 - birthYear;
     }
 }
