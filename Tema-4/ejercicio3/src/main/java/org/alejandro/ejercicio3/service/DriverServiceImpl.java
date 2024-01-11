@@ -23,4 +23,14 @@ public class DriverServiceImpl implements org.alejandro.ejercicio3.service.Drive
     public Optional<Driver> getDriverByCode(String code) {
         return driverRepository.findByCodeIgnoreCase(code);
     }
+
+    @Override
+    public void saveDriver(Driver driver) {
+        driverRepository.save(driver);
+    }
+
+    @Override
+    public void deleteDriver(String code) {
+        driverRepository.deleteByCode(code);
+    }
 }

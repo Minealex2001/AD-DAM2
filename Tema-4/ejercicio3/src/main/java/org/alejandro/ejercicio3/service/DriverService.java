@@ -9,4 +9,8 @@ public interface DriverService {
     List<Driver> getAllDrivers();
 
     Optional<Driver> getDriverByCode(String code);
+
+    void saveDriver(Driver driver);
+
+    void deleteDriver(String code);
 }
