@@ -1,26 +1,32 @@
 package org.alejandro.ejercicio3.controller;
 
 import org.alejandro.ejercicio3.model.Driver;
+import org.alejandro.ejercicio3.service.DriverService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+// Controlador REST para la entidad Driver
 @RestController
 @RequestMapping("/api")
 public class DriverRestController {
 
-    private final org.alejandro.ejercicio3.service.DriverService driverService;
+    // Servicio para gestionar los drivers
+    private final DriverService driverService;
 
+    // Inyección de dependencias del servicio
     @Autowired
-    public DriverRestController(org.alejandro.ejercicio3.service.DriverService driverService) {
+    public DriverRestController(DriverService driverService) {
         this.driverService = driverService;
     }
 
+    // Endpoint para obtener todos los drivers
     @GetMapping("/drivers")
-    public java.util.List<org.alejandro.ejercicio3.model.Driver> getAllDrivers() {
+    public java.util.List<Driver> getAllDrivers() {
         return driverService.getAllDrivers();
     }
 
+    // Endpoint para obtener un driver por su código
     @GetMapping("/drivers/{code}")
     public ResponseEntity<Driver> getByCode(@PathVariable String code) {
         return this.driverService.getDriverByCode(code)
@@ -28,6 +34,7 @@ public class DriverRestController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+    // Endpoint para crear un nuevo driver
     @PostMapping("/drivers")
     public ResponseEntity<Driver> create(@RequestBody Driver driver){
         if (driver.getId() != null) {
@@ -37,12 +44,14 @@ public class DriverRestController {
         return ResponseEntity.ok(driver);
     }
 
+    // Endpoint para actualizar un driver existente
     @PutMapping("/drivers")
     public ResponseEntity<Driver> update(@RequestBody Driver driver){
         this.driverService.saveDriver(driver);
         return ResponseEntity.ok(driver);
     }
 
+    // Endpoint para eliminar un driver por su código
     @DeleteMapping("/drivers/{code}")
     public ResponseEntity<Driver> delete(@PathVariable String code){
         this.driverService.deleteDriver(code);
