@@ -9,5 +9,7 @@ public interface RaceService {
 
     void saveRace(Race race);
 
+    Race getRaceByRound(int round);
+
 //    void deleteRace(String round);
 }

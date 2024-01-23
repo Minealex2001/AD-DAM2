@@ -41,9 +41,9 @@ public class DriverRestController {
     public ResponseEntity<Driver> create(@RequestBody Driver driver){
         if (driver.getId() != null) {
             return ResponseEntity.badRequest().build();
-        }
+        }else {
         this.driverService.saveDriver(driver);
-        return ResponseEntity.ok(driver);
+        return ResponseEntity.ok(driver);}
     }
 
     // Endpoint para actualizar un driver existente
@@ -59,5 +59,4 @@ public class DriverRestController {
         this.driverService.deleteDriver(code);
         return ResponseEntity.ok().build();
     }
-
 }
