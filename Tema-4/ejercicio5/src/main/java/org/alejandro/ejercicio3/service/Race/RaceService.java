@@ -1,6 +1,6 @@
 package org.alejandro.ejercicio3.service.Race;
 
-import org.alejandro.ejercicio3.model.Race;
+import org.alejandro.ejercicio3.entity.Race;
 
 import java.util.List;
 

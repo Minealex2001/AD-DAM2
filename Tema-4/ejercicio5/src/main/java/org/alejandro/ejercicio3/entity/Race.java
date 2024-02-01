@@ -1,6 +1,6 @@
-package org.alejandro.ejercicio3.model;
+package org.alejandro.ejercicio3.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -23,6 +23,7 @@ public class Race {
     private int year;
 
     @OneToMany(mappedBy = "race")
+    @JsonIgnore
     private Set<Results> results;
 
     private int round;

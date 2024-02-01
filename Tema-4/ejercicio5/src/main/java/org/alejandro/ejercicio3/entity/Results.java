@@ -1,7 +1,6 @@
-package org.alejandro.ejercicio3.model;
+package org.alejandro.ejercicio3.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -17,14 +16,16 @@ public class Results {
 
     @ManyToOne
     @JoinColumn(name = "raceid")
+    @JsonIgnoreProperties
     Race race;
 
     @ManyToOne
     @JoinColumn(name = "driverid")
+    @JsonIgnoreProperties
     Driver driver;
 
     private int grid;
-    private String position;
+    private Integer position;
     private int points;
 
 }

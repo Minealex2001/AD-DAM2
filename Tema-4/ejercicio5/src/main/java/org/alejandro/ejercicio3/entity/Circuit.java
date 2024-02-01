@@ -1,4 +1,4 @@
-package org.alejandro.ejercicio3.model;
+package org.alejandro.ejercicio3.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;

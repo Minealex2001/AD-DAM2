@@ -1,8 +1,6 @@
-package org.alejandro.ejercicio3.model;
+package org.alejandro.ejercicio3.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -43,5 +41,6 @@ public class Driver {
     private Constructor constructor;
 
     @OneToMany(mappedBy = "driver")
+    @JsonIgnore
     private Set<Results> results;
 }

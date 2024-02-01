@@ -3,7 +3,7 @@ package org.alejandro.ejercicio3.service.Race;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
-import org.alejandro.ejercicio3.model.Race;
+import org.alejandro.ejercicio3.entity.Race;
 import org.alejandro.ejercicio3.repository.RaceRepository;
 import org.springframework.stereotype.Service;
 

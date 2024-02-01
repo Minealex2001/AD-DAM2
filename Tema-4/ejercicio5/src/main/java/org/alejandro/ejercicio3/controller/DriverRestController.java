@@ -1,6 +1,7 @@
 package org.alejandro.ejercicio3.controller;
 
-import org.alejandro.ejercicio3.model.Driver;
+import org.alejandro.ejercicio3.dto.DriverDTO;
+import org.alejandro.ejercicio3.entity.Driver;
 import org.alejandro.ejercicio3.service.Driver.DriverService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -24,8 +25,8 @@ public class DriverRestController {
 
     // Endpoint para obtener todos los drivers
     @GetMapping("/drivers")
-    public List<Driver> getAllDrivers() {
-        return driverService.getAllDrivers();
+    public ResponseEntity<List<DriverDTO>> getAllDrivers() {
+        return ResponseEntity.ok(this.driverService.getAllDrivers());
     }
 
     // Endpoint para obtener un driver por su código

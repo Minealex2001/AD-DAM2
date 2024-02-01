@@ -1,4 +1,4 @@
-package org.alejandro.ejercicio3.model;
+package org.alejandro.ejercicio3.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;

@@ -1,9 +1,8 @@
 package org.alejandro.ejercicio3.repository;
 
-import org.alejandro.ejercicio3.model.Driver;
+import org.alejandro.ejercicio3.entity.Driver;
 import org.springframework.stereotype.Repository;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.alejandro.ejercicio3.model.Driver;
 
 
 import java.util.Optional;

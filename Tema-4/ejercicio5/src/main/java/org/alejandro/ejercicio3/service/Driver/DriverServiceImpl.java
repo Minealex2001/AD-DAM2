@@ -1,9 +1,10 @@
 package org.alejandro.ejercicio3.service.Driver;
 
-import org.alejandro.ejercicio3.model.Driver;
+import org.alejandro.ejercicio3.dto.DriverDTO;
+import org.alejandro.ejercicio3.entity.Driver;
+import org.alejandro.ejercicio3.mapper.DriverDTOMapper;
 import org.springframework.stereotype.Service;
 import org.alejandro.ejercicio3.repository.DriverRepository;
-import org.alejandro.ejercicio3.service.Driver.DriverService;
 
 import java.util.List;
 import java.util.Optional;
@@ -13,6 +14,8 @@ import java.util.Optional;
 public class DriverServiceImpl implements DriverService{
     // Repositorio para gestionar los drivers en la base de datos
     private final DriverRepository driverRepository;
+    public final DriverDTOMapper DriverDTOMapper = new DriverDTOMapper();
+
 
     // Inyección de dependencias del repositorio
     public DriverServiceImpl(DriverRepository driverRepository) {
@@ -21,8 +24,8 @@ public class DriverServiceImpl implements DriverService{
 
     // Método para obtener todos los drivers
     @Override
-    public List<Driver> getAllDrivers() {
-        return driverRepository.findAll();
+    public List<DriverDTO> getAllDrivers() {
+        return driverRepository.findAll().stream().map(DriverDTOMapper).toList();
     }
 
     // Método para obtener un driver por su código
