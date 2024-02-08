@@ -1,6 +1,9 @@
 package org.alejandro.ejercicio3.repository;
 
+import org.alejandro.ejercicio3.dto.DriverDetail;
 import org.alejandro.ejercicio3.entity.Driver;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -15,4 +18,6 @@ public interface DriverRepository extends JpaRepository<Driver, Long> {
 
     // Método para eliminar un driver por su código
     void deleteByCode(String code);
+
+    Page<DriverDetail> findAllProjectedBy(Pageable pageable);
 }

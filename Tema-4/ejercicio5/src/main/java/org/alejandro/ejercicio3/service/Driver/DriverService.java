@@ -1,7 +1,9 @@
 package org.alejandro.ejercicio3.service.Driver;
 
 import org.alejandro.ejercicio3.dto.DriverDTO;
+import org.alejandro.ejercicio3.dto.DriverDetail;
 import org.alejandro.ejercicio3.entity.Driver;
+import org.springframework.data.domain.Page;
 
 import java.util.List;
 import java.util.Optional;
@@ -19,4 +21,6 @@ public interface DriverService {
 
     // Método para eliminar un driver por su código
     void deleteDriver(String code);
+
+    Page<DriverDetail> getAllDriversResponse(int pageKey, int pageSize, String sortBy, String sortDirect);
 }

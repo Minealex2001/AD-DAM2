@@ -1,8 +1,13 @@
 package org.alejandro.ejercicio3.service.Driver;
 
 import org.alejandro.ejercicio3.dto.DriverDTO;
+import org.alejandro.ejercicio3.dto.DriverDetail;
 import org.alejandro.ejercicio3.entity.Driver;
 import org.alejandro.ejercicio3.mapper.DriverDTOMapper;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.alejandro.ejercicio3.repository.DriverRepository;
 
@@ -44,5 +49,12 @@ public class DriverServiceImpl implements DriverService{
     @Override
     public void deleteDriver(String code) {
         driverRepository.deleteByCode(code);
+    }
+
+    @Override
+    public Page<DriverDetail> getAllDriversResponse(int pageKey, int pageSize, String sortBy, String sortDirect) {
+        Sort sort = Sort.by(Sort.Direction.fromString(sortDirect), sortBy);
+        Pageable pageable = PageRequest.of(pageKey, pageSize, sort);
+        return driverRepository.findAllProjectedBy(pageable);
     }
 }

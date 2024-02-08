@@ -12,7 +12,7 @@ public class DriverDTOMapper implements Function<Driver, DriverDTO> {
         @Override
         public DriverDTO apply(Driver driver) {
             return new DriverDTO(
-                    driver.getId(),
+                    driver.getDriverId(),
                     driver.getCode(),
                     driver.getForename() + " " + driver.getSurname(),
                     driver.getNationality(),

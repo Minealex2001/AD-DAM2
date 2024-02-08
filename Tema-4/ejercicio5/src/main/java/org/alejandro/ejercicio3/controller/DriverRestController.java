@@ -1,9 +1,12 @@
 package org.alejandro.ejercicio3.controller;
 
 import org.alejandro.ejercicio3.dto.DriverDTO;
+import org.alejandro.ejercicio3.dto.DriverDetail;
 import org.alejandro.ejercicio3.entity.Driver;
 import org.alejandro.ejercicio3.service.Driver.DriverService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,10 +28,14 @@ public class DriverRestController {
 
     // Endpoint para obtener todos los drivers
     @GetMapping("/drivers")
-    public ResponseEntity<List<DriverDTO>> getAllDrivers() {
-        return ResponseEntity.ok(this.driverService.getAllDrivers());
-    }
+    public ResponseEntity<List<DriverDetail>> getAllDTO(@RequestParam(defaultValue = "0") int page,
+                                                        @RequestParam(defaultValue = "10") int size,
+                                                        @RequestParam(defaultValue = "driverId") String sortBy,
+                                                        @RequestParam(defaultValue = "asc") String sortDirect) {
 
+        Page<DriverDetail> driverDTOPage = this.driverService.getAllDriversResponse(page, size, sortBy, sortDirect);
+        return new ResponseEntity<>(driverDTOPage.getContent(), HttpStatus.OK);
+    }
     // Endpoint para obtener un driver por su código
     @GetMapping("/drivers/{code}")
     public ResponseEntity<Driver> getByCode(@PathVariable String code) {
@@ -40,7 +47,7 @@ public class DriverRestController {
     // Endpoint para crear un nuevo driver
     @PostMapping("/drivers")
     public ResponseEntity<Driver> create(@RequestBody Driver driver){
-        if (driver.getId() != null) {
+        if (driver.getDriverId() != null) {
             return ResponseEntity.badRequest().build();
         }else {
         this.driverService.saveDriver(driver);
