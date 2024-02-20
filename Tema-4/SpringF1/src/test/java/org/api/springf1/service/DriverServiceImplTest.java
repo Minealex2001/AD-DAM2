@@ -1,6 +1,7 @@
 package org.api.springf1.service;
 
 import org.api.springf1.dto.DriverDTO;
+import org.api.springf1.dto.DriverResponse;
 import org.api.springf1.model.Driver;
 import org.api.springf1.repository.DriverRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -9,6 +10,8 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 
@@ -16,6 +19,8 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 import static org.postgresql.hostchooser.HostRequirement.any;
+
+import java.util.List;
 
 @ExtendWith(MockitoExtension.class)
 class DriverServiceImplTest {
@@ -93,11 +98,13 @@ class DriverServiceImplTest {
     }
 
     @Test
-    void shouldReturnDriverResponseWhenGetAllDrivers(){
-        when(driverRepository.findAll(any(Pageable.class))).thenReturn(null);
+    void shouldReturnDriverResponseWhenFindAllDrivers(){
+        when(driverRepository.findAll(any(Pageable.class))).thenReturn(new PageImpl<>(List.of(driver)));
 
-        driverService.getDrivers(0, 10);
+        DriverResponse drivers = driverService.getDrivers(0, 10);
 
-        verify(driverRepository, times(1)).findAll(any(Pageable.class));
+        assertEquals(List.of(driverDTO), drivers.content());
+
+        verify(driverRepository, times(1)).findAll(PageRequest.of(0, 10));
     }
 }
