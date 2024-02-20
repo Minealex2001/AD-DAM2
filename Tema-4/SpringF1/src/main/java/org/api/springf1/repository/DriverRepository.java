@@ -10,4 +10,6 @@ import java.util.Optional;
 public interface DriverRepository extends JpaRepository<Driver, Long> {
     Optional<Driver> findByCodeIgnoreCase(String code);
     void deleteByCodeIgnoreCase(String code);
+
+    Driver findByCode(String code);
 }

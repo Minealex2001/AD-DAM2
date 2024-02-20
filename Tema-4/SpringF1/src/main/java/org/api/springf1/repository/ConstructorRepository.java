@@ -10,4 +10,8 @@ import java.util.Optional;
 public interface ConstructorRepository extends JpaRepository<Constructor, Long> {
     Optional<Constructor> findByRefIgnoreCase(String ref);
     void deleteByRefIgnoreCase(String ref);
+
+    Constructor findByName(String name);
+
+    void deleteByName(String name);
 }
