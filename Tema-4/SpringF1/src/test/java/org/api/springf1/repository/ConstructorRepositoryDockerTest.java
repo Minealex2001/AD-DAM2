@@ -29,6 +29,7 @@ public class ConstructorRepositoryDockerTest {
         constructor.setId(1L);
         constructor.setName("McLaren");
         constructor.setNationality("British");
+        constructor.setRef("Some value");
         constructor.setUrl("https://en.wikipedia.org/wiki/McLaren");
     }
 
@@ -40,19 +41,20 @@ public class ConstructorRepositoryDockerTest {
         assertThat(constructorSaved.getId()).isGreaterThan(0);
     }
 
-    @Test
-    void shouldReturnMoreThanOneConstructorWhenSaveTwoConstructors(){
-        Constructor constructor2 = new Constructor();
-        constructor2.setId(2L);
-        constructor2.setName("Ferrari");
-        constructor2.setNationality("Italian");
-        constructor2.setUrl("https://en.wikipedia.org/wiki/Scuderia_Ferrari");
+@Test
+void shouldReturnMoreThanOneConstructorWhenSaveTwoConstructors(){
+    Constructor constructor2 = new Constructor();
+    constructor2.setId(2L);
+    constructor2.setName("Ferrari");
+    constructor2.setNationality("Italian");
+    constructor2.setRef("Some other value"); // Set a unique non-null value to the 'ref' field of 'constructor2'
+    constructor2.setUrl("https://en.wikipedia.org/wiki/Scuderia_Ferrari");
 
-        constructorRepository.save(constructor);
-        constructorRepository.save(constructor2);
+    constructorRepository.save(constructor);
+    constructorRepository.save(constructor2);
 
-        assertThat(constructorRepository.count()).isEqualTo(2);
-    }
+    assertThat(constructorRepository.count()).isEqualTo(2);
+}
 
     @Test
     void shouldReturnConstructorNotNullWhenFindByName(){
